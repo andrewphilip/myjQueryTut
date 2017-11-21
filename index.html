@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery Tutorial</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+      header{
+        background:#b4b4b4;
+        color:#fff;
+        margin-bottom: 6px;
+        border-bottom: 2px #000 solid;
+        text-align: center;
+        padding: 5px;
+      }
+      #container{
+        margin: auto;
+        padding: 10px;
+        width: 90%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h2>jQuery Tutorial</h2>
+    </header>
+    <div id="container">
+      <h4>Pentateuch:</h4>
+      <ul id="penta">
+      </ul>
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $.getJSON('books.json', function(data){
+          $.each(data, function(index, book){
+            $('#penta').append('<li>'+book.name+'</li>');
+          });
+        })
+      });
+    </script>
+  </body>
+</html>
